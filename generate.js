@@ -1,6 +1,7 @@
 var fs = require('fs'),
     _ = require('underscore'),
     Citation = require('citation'),
+    sm = require('sitemap'),
     glob = require('glob');
 
 var section_tmpl = _.template(fs.readFileSync('templates/section._', 'utf8'));
@@ -69,11 +70,16 @@ function cited2(text) {
     }
 }
 
+var urls = [];
 
 glob.sync('sections/*.json').forEach(function(s) {
     var section = JSON.parse(fs.readFileSync(s));
     fs.writeFileSync('sections/' + section.heading.identifier + '.html',
         section_tmpl({ section: section, cited: cited }));
+    urls.push({
+        url: '/simple/sections/' + section.heading.identifier + '.html'
+    });
+    console.log('done with ', section.heading.identifier);
 });
 
 var index = JSON.parse(fs.readFileSync('index.json'));
@@ -84,4 +90,21 @@ index.titles.forEach(function(i) {
         return s[0].split('-')[0] == i[0];
     });
     fs.writeFileSync(i[0] + '.html', title_tmpl({ all_sections: all_sections, title: i }));
+    console.log('done with ', i[0]);
+    urls.push({
+        url: '/simple/' + i[0] + '.html'
+    });
 });
+
+console.log('generating sitemap');
+
+sitemap = sm.createSitemap ({
+  hostname: 'http://dccode.org',
+  cacheTime: 600000,        // 600 sec - cache purge period
+  urls: urls
+});
+
+sitemap.toXML(function(xml) {
+    fs.writeFileSync('sitemap.xml', xml);
+});
+
