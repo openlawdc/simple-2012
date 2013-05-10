@@ -8,8 +8,8 @@ var section_tmpl = _.template(fs.readFileSync('templates/section._', 'utf8'));
 var index_tmpl = _.template(fs.readFileSync('templates/index._', 'utf8'));
 var title_tmpl = _.template(fs.readFileSync('templates/title._', 'utf8'));
 
-function cited(x) { return x; }
-function cited2(text) {
+function cited2(x) { return x; }
+function cited(text) {
     var c = Citation.find(text, {
         context: {
             dc_code: {
@@ -25,8 +25,6 @@ function cited2(text) {
             stat: statCited
         }
     }).text;
-
-    console.log(c);
 
     return c;
 
@@ -49,7 +47,7 @@ function cited2(text) {
         if (index > 0 && index < 40) // found, and to the left of the cite
             return;
 
-        return linked("" + cite.dc_code.title + "/" + cite.dc_code.title + "-" + cite.dc_code.section,
+        return linked("./" + cite.dc_code.title + "-" + cite.dc_code.section + '.html',
             cite.match);
     }
 
