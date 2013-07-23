@@ -1,0 +1,20 @@
+body {
+    max-width:960px;
+    margin:0 auto;
+    padding:20px;
+    color:#222;
+    line-height:1.5em;
+}
+
+a {
+    color:#36b;
+}
+
+a:hover {
+    color:#000;
+}
+
+.right {
+    float:right;
+    font-size:140%;
+}

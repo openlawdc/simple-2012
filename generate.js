@@ -1,5 +1,5 @@
 var fs = require('fs'),
-    _ = require('underscore'),
+    _ = require('lodash'),
     Citation = require('citation'),
     sm = require('sitemap'),
     glob = require('glob');
@@ -96,7 +96,7 @@ index.titles.forEach(function(i) {
 
 console.log('generating sitemap');
 
-sitemap = sm.createSitemap ({
+sitemap = sm.createSitemap({
   hostname: 'http://dccode.org',
   cacheTime: 600000,        // 600 sec - cache purge period
   urls: urls
