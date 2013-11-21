@@ -1,0 +1,32 @@
+{
+  "name": "simple",
+  "version": "0.0.0",
+  "description": "a simple representation of the dc code",
+  "main": "render.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openlawdc/simple.git"
+  },
+  "keywords": [
+    "law",
+    "open",
+    "dc",
+    "code"
+  ],
+  "author": "Tom MacWright",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/openlawdc/simple/issues"
+  },
+  "homepage": "https://github.com/openlawdc/simple",
+  "dependencies": {
+    "sitemap": "~0.7.1",
+    "lodash": "~2.3.0",
+    "glob": "~3.2.7",
+    "citation": "~0.6.4",
+    "xmldom": "~0.1.16"
+  }
+}
