@@ -6,6 +6,9 @@
         <link rel='stylesheet' media='screen' type='text/css' href='/css/base.css' />
     </head>
     <body>
+    <div class='alert'>
+        <a href='http://dccode.org/simple/'>this is an outdated version of the code: switch to the updated copy</a>
+    </div>
     <header>
         <div class='right'>
             <a href='/'>home</a>,

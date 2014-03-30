@@ -22,3 +22,9 @@ a:visited {
     float:right;
     font-size:140%;
 }
+
+.alert {
+    background:#FFF9DB;
+    padding:5px;
+    text-align:center;
+}
